@@ -1,1 +1,1 @@
-worker: python junkhead
+worker: python junkhead.py
