@@ -7,7 +7,7 @@ def help(message):
   bot.reply_to(message, "Created by PIYUSH DHAKED - LPU Student")
 
 
-@bot.message_handler(commands=['Hello','hello'])
+@bot.message_handler(commands=['Hello','helloo'])
 def hello(message):
   bot.send_message(message.chat.id, "Hey! how's it going..?")
 
