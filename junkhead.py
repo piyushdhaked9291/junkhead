@@ -1,15 +1,14 @@
-import telebot
-API_KEY = '5033524993:AAFvJCXlR-Aq3cGneJ09IS3oxzmwHP-CrUg'
-bot = telebot.TeleBot(API_KEY)
-
-@bot.message_handler(commands = ['Help','help'])
-def help(message):
-  bot.reply_to(message, "Created by PIYUSH DHAKED - LPU Student")
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
 
 
-@bot.message_handler(commands=['Hello','hello'])
-def hello(message):
-  bot.send_message(message.chat.id, "Hey! how's it going..?")
+def hello(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 
-bot.polling()
+updater = Updater('5033524993:AAFvJCXlR-Aq3cGneJ09IS3oxzmwHP-CrUg')
+
+updater.dispatcher.add_handler(CommandHandler('hello', hello))
+
+updater.start_polling()
+updater.idle()
