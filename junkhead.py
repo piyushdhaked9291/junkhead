@@ -23,8 +23,8 @@ def main():
 
     updater.dispatcher.add_handler(CommandHandler('hello', hello))
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
-    updater.dispatcher.add_handler(CommandHandler('download', downloadcse423))
-    updater.dispatcher.add_handler(CommandHandler('download', downloadcse375))
+    updater.dispatcher.add_handler(CommandHandler('downloadcse423', downloadcse423))
+    updater.dispatcher.add_handler(CommandHandler('downloadcse375', downloadcse375))
 
 
     updater.start_polling()
