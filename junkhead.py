@@ -14,14 +14,22 @@ def myfile(update,context):
 def download(update,context):
    context.bot.sendDocument(update.effective_chat.id, document=open("CSE423 cloud.pdf", 'rb'))
 
+def main():
+    updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
+
+    updater.dispatcher.add_handler(CommandHandler('hello', hello))
+    updater.dispatcher.add_handler(CommandHandler('dev', myfile))
+    updater.dispatcher.add_handler(CommandHandler('download', download))
+
+
+    updater.start_polling()
+    updater.idle()
     
 
-updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
-
-updater.dispatcher.add_handler(CommandHandler('hello', hello))
-updater.dispatcher.add_handler(CommandHandler('dev', myfile))
-updater.dispatcher.add_handler(CommandHandler('download', download))
+if __name__ == "__main__":
+    main()
 
 
-updater.start_polling()
-updater.idle()
+
+
+
