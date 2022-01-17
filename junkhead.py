@@ -51,7 +51,7 @@ def my_button_function(update, context):
                 "CSE 423",
                 callback_data="down#3"
             )
-        ]
+        ],
         [
             InlineKeyboardButton(
                 "INT 332",
