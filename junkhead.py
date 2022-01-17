@@ -17,6 +17,9 @@ def downloadcse423(update,context):
 def downloadcse375(update,context):
     context.bot.sendDocument(update.effective_chat.id, document=open("CSE375 (testing).pdf", 'rb'))
 
+def downloadint332(update,context):
+    context.bot.sendDocument(update.effective_chat.id, document=open("CSE375 (testing).pdf", 'rb'))
+
 
 def main():
     updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
@@ -25,6 +28,7 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
     updater.dispatcher.add_handler(CommandHandler('downloadcse423', downloadcse423))
     updater.dispatcher.add_handler(CommandHandler('downloadcse375', downloadcse375))
+    updater.dispatcher.add_handler(CommandHandler('downloadint332', downloadint332))
 
 
     updater.start_polling()
