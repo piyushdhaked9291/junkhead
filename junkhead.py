@@ -12,7 +12,7 @@ def myfile(update,context):
     update.message.reply_text(text)
 
 def download(update,context):
-    update.message.SendDocument(update.effective_chat.id, document=open("CSE423-cloud.pdf", 'rb'))
+    update.message.sendDocument(update.effective_chat.id, document=open("CSE423-cloud.pdf", 'rb'))
 
     
 
