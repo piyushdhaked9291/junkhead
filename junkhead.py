@@ -87,10 +87,6 @@ def button_callback_function(update, context):
             chat_id=chat_id,
             text="❗kuch nahi mila",
         )
-    context.bot.send_message(
-        chat_id=chat_id,
-        text=f"User selected download button {number}"
-    )
 
 
 def main():
