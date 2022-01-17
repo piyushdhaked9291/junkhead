@@ -36,19 +36,19 @@ def my_button_function(update, context):
     buttons = [
         [
             InlineKeyboardButton(
-                "download1",
+                "CSE 375",
                 callback_data="down#1"
             )
         ],
         [
             InlineKeyboardButton(
-                "download2",
+                "CSE 376",
                 callback_data="down#2"
             )
         ],
         [
             InlineKeyboardButton(
-                "download3",
+                "CSE 423",
                 callback_data="down#3"
             )
         ]
