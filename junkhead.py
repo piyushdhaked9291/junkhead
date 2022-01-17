@@ -11,8 +11,12 @@ def myfile(update,context):
         text = f.read()
     update.message.reply_text(text)
 
-def download(update,context):
+def downloadcse423(update,context):
    context.bot.sendDocument(update.effective_chat.id, document=open("CSE423 cloud.pdf", 'rb'))
+
+def downloadcse375(update,context):
+    context.bot.sendDocument(update.effective_chat.id, document=open("CSE375 (testing).pdf", 'rb'))
+
 
 def main():
     updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
