@@ -52,6 +52,12 @@ def my_button_function(update, context):
                 callback_data="down#3"
             )
         ]
+        [
+            InlineKeyboardButton(
+                "INT 332",
+                callback_data="down#4"
+            )
+        ]
     ]
 
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -74,6 +80,8 @@ def button_callback_function(update, context):
         downloadcse376(query, context)
     elif number == "3":
         downloadcse423(query, context)
+    elif number == "4":
+        downloadint332(query, context)
     else:
         context.bot.send_message(
             chat_id=chat_id,
