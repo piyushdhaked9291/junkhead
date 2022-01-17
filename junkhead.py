@@ -10,12 +10,17 @@ def myfile(update,context):
     with open("BIO.txt", 'r') as f:
         text = f.read()
     update.message.reply_text(text)
+
+def download(update,context):
+    update.message.SendDocument(update.effective_chat.id, document=open("CSE423-cloud.pdf", 'rb'))
+
     
 
 updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
 
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
 updater.dispatcher.add_handler(CommandHandler('dev', myfile))
+updater.dispatcher.add_handler(CommandHandler('download', download))
 
 
 updater.start_polling()
