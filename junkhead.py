@@ -13,22 +13,22 @@ def myfile(update, context):
 
 
 def downloadcse423(update, context):
-    context.bot.sendDocument(update.effective_chat.id,
+    context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE423 cloud.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
-    context.bot.sendDocument(update.effective_chat.id,
+    context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE375 (testing).pdf", 'rb'))
 
 
 def downloadcse376(update, context):
-    context.bot.sendDocument(update.effective_chat.id,
+    context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE376 Atomated.pdf", 'rb'))
 
 
 def downloadint332(update, context):
-    context.bot.sendDocument(update.effective_chat.id,
+    context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE375 (testing).pdf", 'rb'))
 
 
