@@ -20,6 +20,8 @@ def downloadcse423(update, context):
 def downloadcse375(update, context):
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE375 (testing).pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE375 UNIT2.ppt", 'rb'))
 
 
 def downloadcse376(update, context):
