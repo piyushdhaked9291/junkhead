@@ -15,6 +15,8 @@ def myfile(update, context):
 def downloadcse423(update, context):
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE423 cloud.pdf", 'rb'))
+    context.bot.senDocument(update.message.chat_id,
+                            document=open("CSE423 VLAN.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
