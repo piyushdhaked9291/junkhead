@@ -12,12 +12,12 @@ def myfile(update, context):
     update.message.reply_text(text)
 
 
-def downloadcse423(update, context):
+def downloadcse423(update, context, job_queue):
     message = context.bot.sendDocument(update.message.chat_id,
                                        document=open("CSE423 cloud.pdf", 'rb'))
     # context.bot.sendDocument(update.message.chat_id,
     #                          document=open("CSE423 VLAN.pdf", 'rb'))
-    context.job_queue.run_once(
+    job_queue.run_once(
         callback_delete, 2, context=message
     )
 
@@ -80,7 +80,7 @@ def my_button_function(update, context):
     )
 
 
-def button_callback_function(update, context):
+def button_callback_function(update, context, job_queue):
     query = update.callback_query
     data = query.data
     number = data.split("#")[-1]
@@ -90,7 +90,7 @@ def button_callback_function(update, context):
     elif number == "2":
         downloadcse376(query, context)
     elif number == "3":
-        downloadcse423(query, context)
+        downloadcse423(query, context, job_queue)
     elif number == "4":
         downloadint332(query, context)
     else:
@@ -115,7 +115,7 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
 
     updater.dispatcher.add_handler(CommandHandler(
-        "download", my_button_function, run_async=True))
+        "download", my_button_function, pass_job_queue=True))
     updater.dispatcher.add_handler(CallbackQueryHandler(
         callback=button_callback_function,
         pattern="^down#"
