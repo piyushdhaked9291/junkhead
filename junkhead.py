@@ -29,6 +29,8 @@ def downloadcse375(update, context):
 def downloadcse376(update, context):
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE376 Atomated.pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("Junit.pdf", 'rb'))
 
 
 def downloadint332(update, context):
