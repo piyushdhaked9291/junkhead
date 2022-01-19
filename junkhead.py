@@ -2,7 +2,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
 
-def hello(update, context):
+def start(update, context):
     update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 
@@ -102,7 +102,7 @@ def button_callback_function(update, context):
 def main():
     updater = Updater('5033524993:AAG0QxeoeV-im4Wbb7HOHZZvLYhLaS_YZfs')
 
-    updater.dispatcher.add_handler(CommandHandler('hello', hello))
+    updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
 
     updater.dispatcher.add_handler(CommandHandler(
