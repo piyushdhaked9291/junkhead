@@ -115,10 +115,11 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
 
     updater.dispatcher.add_handler(CommandHandler(
-        "download", my_button_function, pass_job_queue=True))
+        "download", my_button_function))
     updater.dispatcher.add_handler(CallbackQueryHandler(
         callback=button_callback_function,
-        pattern="^down#"
+        pattern="^down#",
+        pass_job_queue=True
     ))
 
     # updater.dispatcher.add_handler(
