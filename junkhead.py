@@ -13,10 +13,13 @@ def myfile(update, context):
 
 
 def downloadcse423(update, context):
-    context.bot.sendDocument(update.message.chat_id,
-                             document=open("CSE423 cloud.pdf", 'rb'))
-    context.bot.sendDocument(update.message.chat_id,
-                             document=open("CSE423 VLAN.pdf", 'rb'))
+    message = context.bot.sendDocument(update.message.chat_id,
+                                       document=open("CSE423 cloud.pdf", 'rb'))
+    # context.bot.sendDocument(update.message.chat_id,
+    #                          document=open("CSE423 VLAN.pdf", 'rb'))
+    context.job_queue.run_once(
+        callback_delete, 2, context=message
+    )
 
 
 def downloadcse375(update, context):
@@ -99,6 +102,10 @@ def button_callback_function(update, context):
         chat_id=chat_id,
         text=f"User selected download button {number}"
     )
+
+
+def callback_delete(context):
+    context.job_context.delete()
 
 
 def main():
