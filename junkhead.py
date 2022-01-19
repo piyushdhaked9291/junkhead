@@ -12,14 +12,11 @@ def myfile(update, context):
     update.message.reply_text(text)
 
 
-def downloadcse423(update, context, job_queue):
-    message = context.bot.sendDocument(update.message.chat_id,
-                                       document=open("CSE423 cloud.pdf", 'rb'))
-    # context.bot.sendDocument(update.message.chat_id,
-    #                          document=open("CSE423 VLAN.pdf", 'rb'))
-    job_queue.run_once(
-        callback_delete, 2, context=message
-    )
+def downloadcse423(update, context):
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 cloud.pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 VLAN.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
@@ -73,14 +70,15 @@ def my_button_function(update, context):
 
     reply_markup = InlineKeyboardMarkup(buttons)
 
-    update.message.reply_text(
+    piyush = update.message.reply_text(
         text="`Hey! select any Button to download`",
         reply_markup=reply_markup,
         parse_mode="Markdown"
     )
+    context.job_queue.run_once(callback_delete, 3, piyush)
 
 
-def button_callback_function(update, context, job_queue, **kargs):
+def button_callback_function(update, context):
     query = update.callback_query
     data = query.data
     number = data.split("#")[-1]
@@ -90,7 +88,7 @@ def button_callback_function(update, context, job_queue, **kargs):
     elif number == "2":
         downloadcse376(query, context)
     elif number == "3":
-        downloadcse423(query, context, job_queue)
+        downloadcse423(query, context)
     elif number == "4":
         downloadint332(query, context)
     else:
@@ -115,11 +113,10 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('dev', myfile))
 
     updater.dispatcher.add_handler(CommandHandler(
-        "download", my_button_function))
+        "download", my_button_function, run_async=True))
     updater.dispatcher.add_handler(CallbackQueryHandler(
         callback=button_callback_function,
-        pattern="^down#",
-        pass_job_queue=True
+        pattern="^down#"
     ))
 
     # updater.dispatcher.add_handler(
