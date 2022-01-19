@@ -80,7 +80,7 @@ def my_button_function(update, context):
     )
 
 
-def button_callback_function(update, context, job_queue):
+def button_callback_function(update, context, job_queue, **kargs):
     query = update.callback_query
     data = query.data
     number = data.split("#")[-1]
