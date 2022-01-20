@@ -77,7 +77,7 @@ def my_button_function(update, context):
         reply_markup=reply_markup,
         parse_mode="Markdown"
     )
-    context.job_queue.run_once(callback_delete, 3, context=piyush)
+    context.job_queue.run_once(callback_delete, 30, context=piyush)
 
 
 def button_callback_function(update, context):
