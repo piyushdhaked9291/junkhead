@@ -39,7 +39,7 @@ def downloadint332(update, context):
     context.bot.sendDocument(update.message.chat_id,
                              document=open("Docker Architecture.pdf", 'rb'))
     context.bot.sendDocument(update.message.chat_id,
-                             document=open("int practical docker.pdf", 'rb'))
+                             document=open("Docker Practical.pdf", 'rb'))
 
 
 def my_button_function(update, context):
