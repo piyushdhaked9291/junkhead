@@ -14,13 +14,10 @@ def myfile(update, context):
 
 
 def downloadcse423(update, context):
-    eras = (
-        context.bot.sendDocument(update.message.chat_id,
-                                 document=open("CSE423 cloud.pdf", 'rb')),
-        context.bot.sendDocument(update.message.chat_id,
-                                 document=open("CSE423 VLAN.pdf", 'rb'))
-    )
-    context.job_queue.run_once(callback_delete, 5, context=eras)
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 cloud.pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 VLAN.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
