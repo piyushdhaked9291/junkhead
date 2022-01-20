@@ -10,14 +10,17 @@ def myfile(update, context):
     with open("BIO.txt", 'r') as f:
         text = f.read()
     erase = update.message.reply_text(text)
-    context.job_queue.run_once(callback_delete, 10, context=erase)
+    context.job_queue.run_once(callback_delete, 5, context=erase)
 
 
 def downloadcse423(update, context):
-    context.bot.sendDocument(update.message.chat_id,
-                             document=open("CSE423 cloud.pdf", 'rb'))
-    context.bot.sendDocument(update.message.chat_id,
-                             document=open("CSE423 VLAN.pdf", 'rb'))
+    erase = (
+        context.bot.sendDocument(update.message.chat_id,
+                                 document=open("CSE423 cloud.pdf", 'rb')),
+        context.bot.sendDocument(update.message.chat_id,
+                                 document=open("CSE423 VLAN.pdf", 'rb'))
+    )
+    context.job_queue.run_once(callback_delete, 5, context=erase)
 
 
 def downloadcse375(update, context):
@@ -78,7 +81,7 @@ def my_button_function(update, context):
         reply_markup=reply_markup,
         parse_mode="Markdown"
     )
-    context.job_queue.run_once(callback_delete, 30, context=piyush)
+    context.job_queue.run_once(callback_delete, 6, context=piyush)
 
 
 def button_callback_function(update, context):
