@@ -9,7 +9,8 @@ def start(update, context):
 def myfile(update, context):
     with open("BIO.txt", 'r') as f:
         text = f.read()
-    update.message.reply_text(text)
+    erase = update.message.reply_text(text)
+    context.job_queue.run_once(callback_delete, 10, context=erase)
 
 
 def downloadcse423(update, context):
