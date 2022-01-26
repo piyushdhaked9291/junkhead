@@ -10,7 +10,7 @@ def myfile(update, context):
     with open("BIO.txt", 'r') as f:
         text = f.read()
     erase = update.message.reply_text(text)
-    context.job_queue.run_once(callback_delete, 5, context=erase)
+    context.job_queue.run_once(callback_delete, 60, context=erase)
 
 
 def downloadcse423(update, context):
@@ -82,7 +82,7 @@ def my_button_function(update, context):
         reply_markup=reply_markup,
         parse_mode="Markdown"
     )
-    context.job_queue.run_once(callback_delete, 6, context=piyush)
+    context.job_queue.run_once(callback_delete, 20, context=piyush)
 
 
 def button_callback_function(update, context):
