@@ -18,6 +18,8 @@ def downloadcse423(update, context):
                              document=open("CSE423 cloud.pdf", 'rb'))
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE423 VLAN.pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 Cluster Computing.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
@@ -25,6 +27,8 @@ def downloadcse375(update, context):
                              document=open("CSE375 (testing).pdf", 'rb'))
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE375 UNIT2.ppt", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE375 BlackBoxTesting.pdf", 'rb'))
 
 
 def downloadcse376(update, context):
