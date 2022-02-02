@@ -20,6 +20,8 @@ def downloadcse423(update, context):
                              document=open("CSE423 VLAN.pdf", 'rb'))
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE423 Cluster Computing.pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("CSE423 Cloud Types.pdf", 'rb'))
 
 
 def downloadcse375(update, context):
