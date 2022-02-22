@@ -33,6 +33,8 @@ def downloadcse375(update, context):
                              document=open("CSE375 BlackBoxTesting.pdf", 'rb'))
     context.bot.sendDocument(update.message.chat_id,
                              document=open("CSE375 Testingtypes(WithQuestions).pdf", 'rb'))
+    context.bot.sendDocument(update.message.chat_id,
+                             document=open("UNIT-3(UAT).ppt", 'rb'))
 
 
 def downloadcse376(update, context):
